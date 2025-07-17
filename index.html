@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>German A1 Sprechen Cards</title>
+    <style>
+        /* --- Google Font --- */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+        /* --- CSS Variables for easy themeing --- */
+        :root {
+            --color-bg: #f4f7f9;
+            --color-text: #333;
+            --color-primary: #007bff;
+            --color-secondary: #28a745;
+            --color-card-bg: #ffffff;
+            --color-card-shadow: rgba(0, 0, 0, 0.1);
+            --color-card-border: #e1e8ed;
+            --font-family: 'Poppins', sans-serif;
+        }
+
+        /* --- General Styles & Resets --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* --- Header & Title --- */
+        .main-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .main-header h1 {
+            font-size: 2.5rem;
+            color: var(--color-text);
+            font-weight: 700;
+        }
+
+        .main-header p {
+            font-size: 1.1rem;
+            color: #6c757d;
+        }
+        
+        /* --- Tab Navigation --- */
+        .tabs {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+            gap: 1rem;
+        }
+
+        .tab-btn {
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            border: 2px solid transparent;
+            border-radius: 50px;
+            background-color: var(--color-card-bg);
+            color: var(--color-text);
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px var(--color-card-shadow);
+        }
+
+        .tab-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px var(--color-card-shadow);
+        }
+
+        .tab-btn.active {
+            color: #fff;
+        }
+        
+        #teil2-btn.active { background-color: var(--color-primary); border-color: var(--color-primary); }
+        #teil3-btn.active { background-color: var(--color-secondary); border-color: var(--color-secondary); }
+
+        /* --- Content Panels --- */
+        .content-panel {
+            display: none;
+        }
+
+        .content-panel.active {
+            display: block;
+        }
+
+        /* --- Section Header --- */
+        .section-header {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid;
+        }
+        
+        .teil2 .section-header { border-color: var(--color-primary); color: var(--color-primary); }
+        .teil3 .section-header { border-color: var(--color-secondary); color: var(--color-secondary); }
+
+        /* --- Card Grid Layout --- */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        /* --- Card Flip Animation --- */
+        .card-container {
+            background-color: transparent;
+            height: 250px;
+            perspective: 1000px;
+            cursor: pointer;
+        }
+
+        .card {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+        }
+
+        .card.flipped {
+            transform: rotateY(180deg);
+        }
+
+        .card-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden; /* Safari */
+            backface-visibility: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px var(--color-card-shadow);
+            border: 1px solid var(--color-card-border);
+            background-color: var(--color-card-bg);
+            text-align: center;
+        }
+
+        .card-back {
+            transform: rotateY(180deg);
+            align-items: flex-start;
+            justify-content: flex-start;
+            overflow-y: auto;
+            text-align: left;
+        }
+        
+        /* Custom scrollbar for card back */
+        .card-back::-webkit-scrollbar { width: 5px; }
+        .card-back::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 10px; }
+        .card-back::-webkit-scrollbar-thumb { background: #ccc; border-radius: 10px; }
+        .card-back::-webkit-scrollbar-thumb:hover { background: #aaa; }
+
+
+        /* --- Card Content Styling --- */
+        .card-face h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-face .thema {
+            font-size: 0.9rem;
+            font-weight: 400;
+            color: #fff;
+            padding: 0.2rem 0.6rem;
+            border-radius: 20px;
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+        }
+        
+        /* Card Front Specifics */
+        .card-front p {
+            font-size: 1rem;
+            color: #6c757d;
+        }
+        
+        .card-front .emoji {
+            font-size: 4rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Card Back Specifics */
+        .card-back-content {
+            width: 100%;
+        }
+
+        .card-back-content .qa-block, .card-back-content .bitte-block {
+            margin-bottom: 1rem;
+        }
+        .card-back-content .qa-block:last-child, .card-back-content .bitte-block:last-child {
+            margin-bottom: 0;
+        }
+
+        .card-back-content strong {
+            font-weight: 600;
+            display: block;
+            margin-bottom: 0.2rem;
+        }
+        
+        .card-back-content i {
+            color: #555;
+            font-size: 0.9em;
+        }
+
+        .teil2 .thema { background-color: var(--color-primary); }
+        .teil2 .card-back strong { color: var(--color-primary); }
+        
+        .teil3 .thema { background-color: var(--color-secondary); }
+        .teil3 .card-back strong { color: var(--color-secondary); }
+        .teil3 .card-back .reaktion strong { color: #dc3545; }
+
+        /* --- Footer --- */
+        footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--color-card-border);
+            color: #6c757d;
+            font-size: 0.9rem;
+        }
+        
+        /* --- Responsive Design --- */
+        @media (max-width: 768px) {
+            .main-header h1 { font-size: 2rem; }
+            .tabs { flex-direction: column; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header class="main-header">
+            <h1>Deutsche A1 Sprechen-Karten</h1>
+            <p>Übung für Teil 2 & Teil 3. Klicken Sie auf eine Karte, um sie umzudrehen.</p>
+        </header>
+
+        <nav class="tabs">
+            <button class="tab-btn active" id="teil2-btn" data-target="#teil2-content">Teil 2: Fragen & Antworten</button>
+            <button class="tab-btn" id="teil3-btn" data-target="#teil3-content">Teil 3: Bitten & Reaktionen</button>
+        </nav>
+
+        <main>
+            <!-- ======================= TEIL 2 CONTENT ======================= -->
+            <div id="teil2-content" class="content-panel active teil2">
+                
+                <!-- Thema: Einkaufen -->
+                <h2 class="section-header">Thema: Einkaufen</h2>
+                <div class="card-grid">
+                    <div class="card-container"><div class="card" data-thema="Einkaufen">
+                        <div class="card-face card-front"><span class="thema">Einkaufen</span><h3>wo am liebsten</h3></div>
+                        <div class="card-face card-back"><div class="card-back-content">
+                            <div class="qa-block"><strong>W-Frage:</strong> Wo kaufen Sie am liebsten ein? <br><strong>Antwort:</strong> Ich kaufe am liebsten auf dem Markt ein.</div>
+                            <div class="qa-block"><strong>Ja/Nein-Frage:</strong> Kaufen Sie lieber im Supermarkt ein? <br><strong>Antwort:</strong> Nein, ich kaufe lieber auf dem Markt.</div>
+                        </div></div>
+                    </div></div>
+                    <div class="card-container"><div class="card" data-thema="Einkaufen">
+                        <div class="card-face card-front"><span class="thema">Einkaufen</span><h3>Markt</h3></div>
+                        <div class="card-face card-back"><div class="card-back-content">
+                            <div class="qa-block"><strong>W-Frage:</strong> Was kaufen Sie oft auf dem Markt? <br><strong>Antwort:</strong> Ich kaufe oft Gemüse auf dem Markt.</div>
+                            <div class="qa-block"><strong>Ja/Nein-Frage:</strong> Gehen Sie am Wochenende auf den Markt? <br><strong>Antwort:</strong> Ja, ich gehe jeden Samstag auf den Markt.</div>
+                        </div></div>
+                    </div></div>
+                    <div class="card-container"><div class="card" data-thema="Einkaufen">
+                        <div class="card-face card-front"><span class="thema">Einkaufen</span><h3>Gemüse</h3></div>
+                        <div class="card-face card-back"><div class="card-back-content">
+                            <div class="qa-block"><strong>W-Frage:</strong> Welches Gemüse essen Sie gern? <br><strong>Antwort:</strong> Ich esse gern Kartoffeln und Tomaten.</div>
+                            <div class="qa-block"><strong>Ja/Nein-Frage:</strong> Kaufen Sie auch Obst? <br><strong>Antwort:</strong> Ja, ich kaufe auch Äpfel und Bananen.</div>
+                        </div></div>
+                    </div></div>
+                    <div class="card-container"><div class="card" data-thema="Einkaufen">
+                        <div class="card-face card-front"><span class="thema">Einkaufen</span><h3>Getränke</h3></div>
+                        <div class="card-face card-back"><div class="card-back-content">
+                            <div class="qa-block"><strong>W-Frage:</strong> Was ist Ihr Lieblingsgetränk? <br><strong>Antwort:</strong> Mein Lieblingsgetränk ist Tee.</div>
+                            <div class="qa-block"><strong>Ja/Nein-Frage:</strong> Trinken Sie gern Cola? <br><strong>Antwort:</strong> Nein, ich trinke nicht gern Cola.</div>
+                        </div></div>
+                    </div></div>
+                    <div class="card-container"><div class="card" data-thema="Einkaufen">
+                        <div class="card-face card-front"><span class="thema">Einkaufen</span><h3>Schokolade</h3></div>
+                        <div class="card-face card-back"><div class="card-back-content">
+                            <div class="qa-block"><strong>W-Frage:</strong> Wie oft essen Sie Schokolade? <br><strong>Antwort:</strong> Ich esse selten Schokolade.</div>
+                            <div class="qa-block"><strong>Ja/Nein-Frage:</strong> Essen Sie gern Schokolade? <br><strong>Antwort:</strong> Ja, aber nur manchmal.</div>
+                        </div></div>
+                    </div></div>
+                    <div class="card-container"><div class="card" data-thema="Einkaufen">
+                        <div class="card-face card-front"><span class="thema">Einkaufen</span><h3>Wann?</h3></div>
+                        <div class="card-face card-back"><div class="card-back-content">
+                            <div class="qa-block"><strong>W-Frage:</strong> Wann gehen Sie einkaufen? <br><strong>Antwort:</strong> Ich gehe meistens am Samstagvormittag einkaufen.</div>
+                            <div class="qa-block"><strong>Ja/Nein-Frage:</strong> Gehen Sie auch unter der Woche einkaufen? <br><strong>Antwort:</strong> Nein, da habe ich keine Zeit.</div>
+                        </div></div>
+                    </div></div>
+                </div>
+
+                <!-- Thema: Freizeit -->
+                <h2 class="section-header">Thema: Freizeit</h2>
+                <div class="card-grid">
+                    <div class="card-container"><div class="card" data-thema="Freizeit">
+                        <div class="card-face card-front"><span class="thema">Freizeit</span><h3>Hobby</h3></div>
+                        <div class="card-face card-back"><div class="card-back-content">
+                            <div class="qa-block"><strong>W-Frage:</strong> Was sind Ihre Hobbys? <br><strong>Antwort:</strong> Meine Hobbys sind Lesen und Musik hören.</div>
+                            <div class="qa-block"><strong>Ja/Nein-Frage:</strong> Haben Sie viele Hobbys? <br><strong>Antwort:</strong> Nein, ich habe nur wenige Hobbys.</div>
+                        </div></div>
+                    </div></div>
+                    <div class="card-container"><div class="card" data-thema="Freizeit">
+                        <div class="card-face card-front"><span class="thema">Freizeit</span><h3>Wochenende</h3></div>
+                        <div class="card-face card-back"><div class="card-back-content">
+                            <div class="qa-block"><strong>W-Frage:</strong> Was machen Sie am Wochenende? <br><strong>Antwort:</strong> Am Wochenende treffe ich Freunde.</div>
+                            <div class="qa-block"><strong>Ja/Nein-Frage:</strong> Bleiben Sie am Wochenende zu Hause? <br><strong>Antwort:</strong> Manchmal, aber meistens gehe ich aus.</div>
+                        </div></div>
+                    </div></div>
+                    <div class="card-container"><div class="card" data-thema="Freizeit">
+                        <div class="card-face card-front"><span class="thema">Freizeit</span><h3>Wann?</h3></div>
+                        <div class="card-face card-back"><div class="card-back-content">
+                            <div class="qa-block"><strong>W-Frage:</strong> Wann haben Sie frei? <br><strong>Antwort:</strong> Ich habe am Samstag und Sonntag frei.</div>
+                             <div class="qa-block"><strong>Ja/Nein-Frage:</strong> Müssen Sie manchmal am Wochenende arbeiten? <br><strong>Antwort:</strong> Nein, zum Glück nicht.</div>
+                        </div></div>
+                    </div></div>
+                    <div class="card-container"><div class="card" data-thema="Freizeit">
+                        <div class="card-face card-front"><span class="thema">Freizeit</span><h3>Fußball</h3></div>
+                        <div class="card-face card-back"><div class="card-back-content">
+                            <div class="qa-block"><strong>W-Frage:</strong> Wo spielen Sie Fußball? <br><strong>Antwort:</strong> Wir spielen im Park Fußball.</div>
+                            <div class="qa-block"><strong>Ja/Nein-Frage:</strong> Spielen Sie gern Fußball? <br><strong>Antwort:</strong> Ja, Fußball ist mein Lieblingssport.</div>
+                        </div></div>
+                    </div></div>
+                    <div class="card-container"><div class="card" data-thema="Freizeit">
+                        <div class="card-face card-front"><span class="thema">Freizeit</span><h3>Lieblingssport</h3></div>
+                        <div class="card-face card-back"><div class="card-back-content">
+                            <div class="qa-block"><strong>W-Frage:</strong> Was ist Ihr Lieblingssport? <br><strong>Antwort:</strong> Mein Lieblingssport ist Schwimmen.</div>
+                            <div class="qa-block"><strong>Ja/Nein-Frage:</strong> Machen Sie oft Sport? <br><strong>Antwort:</strong> Ja, ich versuche, zweimal pro Woche Sport zu machen.</div>
+                        </div></div>
+                    </div></div>
+                    <div class="card-container"><div class="card" data-thema="Freizeit">
+                        <div class="card-face card-front"><span class="thema">Freizeit</span><h3>Sonntag</h3></div>
+                        <div class="card-face card-back"><div class="card-back-content">
+                            <div class="qa-block"><strong>W-Frage:</strong> Was machen Sie normalerweise am Sonntag? <br><strong>Antwort:</strong> Am Sonntag schlafe ich lange.</div>
+                            <div class="qa-block"><strong>Ja/Nein-Frage:</strong> Stehen Sie am Sonntag früh auf? <br><strong>Antwort:</strong> Nein, am Sonntag schlafe ich aus.</div>
+                        </div></div>
+                    </div></div>
+                </div>
+
+                <!-- Thema: Arbeit und Beruf -->
+                <h2 class="section-header">Thema: Arbeit und Beruf</h2>
+                <div class="card-grid">
+                    <div class="card-container"><div class="card" data-thema="Arbeit und Beruf">
+                        <div class="card-face card-front"><span class="thema">Arbeit und Beruf</span><h3>Arbeit</h3></div>
+                        <div class="card-face card-back"><div class="card-back-content">
+                            <div class="qa-block"><strong>W-Frage:</strong> Was sind Sie von Beruf? <br><strong>Antwort:</strong> Ich bin Student / Programmierer.</div>
+                            <div class="qa-block"><strong>Ja/Nein-Frage:</strong> Macht Ihnen Ihre Arbeit Spaß? <br><strong>Antwort:</strong> Ja, meine Arbeit gefällt mir sehr gut.</div>
+                        </div></div>
+                    </div></div>
+                    <div class="card-container"><div class="card" data-thema="Arbeit und Beruf">
+                        <div class="card-face card-front"><span class="thema">Arbeit und Beruf</span><h3>Kollegen</h3></div>
+                        <div class="card-face card-back"><div class="card-back-content">
+                            <div class="qa-block"><strong>W-Frage:</strong> Wie sind Ihre Kollegen? <br><strong>Antwort:</strong> Meine Kollegen sind sehr nett und hilfsbereit.</div>
+                            <div class="qa-block"><strong>Ja/Nein-Frage:</strong> Verstehen Sie sich gut mit Ihren Kollegen? <br><strong>Antwort:</strong> Ja, wir sind ein gutes Team.</div>
+                        </div></div>
+                    </div></div>
+                    <div class="card-container"><div class="card" data-thema="Arbeit und Beruf">
+                        <div class="card-face card-front"><span class="thema">Arbeit und Beruf</span><h3>Arbeitsplatz</h3></div>
+                        <div class="card-face card-back"><div class="card-back-content">
+                            <div class="qa-block"><strong>W-Frage:</strong> Wo ist Ihr Arbeitsplatz? <br><strong>Antwort:</strong> Mein Arbeitsplatz ist in einem Büro in der Stadt.</div>
+                            <div class="qa-block"><strong>Ja/Nein-Frage:</strong> Arbeiten Sie gern im Büro? <br><strong>Antwort:</strong> Ja, das Arbeitsklima ist sehr gut.</div>
+                        </div></div>
+                    </div></div>
+                    <div class="card-container"><div class="card" data-thema="Arbeit und Beruf">
+                        <div class="card-face card-front"><span class="thema">Arbeit und Beruf</span><h3>Chef</h3></div>
+                        <div class="card-face card-back"><div class="card-back-content">
+                            <div class="qa-block"><strong>W-Frage:</strong> Wie ist Ihr Chef / Ihre Chefin? <br><strong>Antwort:</strong> Mein Chef ist sehr fair und kompetent.</div>
+                            <div class="qa-block"><strong>Ja/Nein-Frage:</strong> Ist Ihr Chef streng? <br><strong>Antwort:</strong> Nein, er ist verständnisvoll.</div>
+                        </div></div>
+                    </div></div>
+                     <div class="card-container"><div class="card" data-thema="Arbeit und Beruf">
+                        <div class="card-face card-front"><span class="thema">Arbeit und Beruf</span><h3>arbeitslos</h3></div>
+                        <div class="card-face card-back"><div class="card-back-content">
+                            <div class="qa-block"><strong>W-Frage:</strong> Was machen Sie, wenn Sie arbeitslos sind? <br><strong>Antwort:</strong> Ich schreibe Bewerbungen und suche eine neue Stelle.</div>
+                            <div class="qa-block"><strong>Ja/Nein-Frage:</strong> Sind Sie im Moment arbeitslos? <br><strong>Antwort:</strong> Ja, leider schon. / Nein, ich habe Arbeit.</div>
+                        </div></div>
+                    </div></div>
+                     <div class="card-container"><div class="card" data-thema="Arbeit und Beruf">
+                        <div class="card-face card-front"><span class="thema">Arbeit und Beruf</span><h3>Urlaub</h3></div>
+                        <div class="card-face card-back"><div class="card-back-content">
+                            <div class="qa-block"><strong>W-Frage:</strong> Wie viele Tage Urlaub haben Sie im Jahr? <br><strong>Antwort:</strong> Ich habe 25 Tage Urlaub im Jahr.</div>
+                            <div class="qa-block"><strong>Ja/Nein-Frage:</strong> Nehmen Sie im Sommer Urlaub? <br><strong>Antwort:</strong> Ja, ich nehme im Juli zwei Wochen Urlaub.</div>
+                        </div></div>
+                    </div></div>
+                </div>
+
+                <!-- Thema: Reisen -->
+                <h2 class="section-header">Thema: Reisen</h2>
+                <div class="card-grid">
+                     <div class="card-container"><div class="card" data-thema="Reisen">
+                        <div class="card-face card-front"><span class="thema">Reisen</span><h3>Wohin?</h3></div>
+                        <div class="card-face card-back"><div class="card-back-content">
+                            <div class="qa-block"><strong>W-Frage:</strong> Wohin reisen Sie gern? <br><strong>Antwort:</strong> Ich reise gern nach Pokhara oder Indien.</div>
+                            <div class="qa-block"><strong>Ja/Nein-Frage:</strong> Reisen Sie gern allein? <br><strong>Antwort:</strong> Nein, ich reise lieber mit Freunden.</div>
+                        </div></div>
+                    </div></div>
+                     <div class="card-container"><div class="card" data-thema="Reisen">
+                        <div class="card-face card-front"><span class="thema">Reisen</span><h3>Hotel</h3></div>
+                        <div class="card-face card-back"><div class="card-back-content">
+                            <div class="qa-block"><strong>W-Frage:</strong> Wo übernachten Sie im Urlaub? <br><strong>Antwort:</strong> Ich übernachte meistens in einem Hotel.</div>
+                            <div class="qa-block"><strong>Ja/Nein-Frage:</strong> Buchen Sie das Hotel im Internet? <br><strong>Antwort:</strong> Ja, ich buche immer online.</div>
+                        </div></div>
+                    </div></div>
+                     <div class="card-container"><div class="card" data-thema="Reisen">
+                        <div class="card-face card-front"><span class="thema">Reisen</span><h3>Urlaub</h3></div>
+                        <div class="card-face card-back"><div class="card-back-content">
+                            <div class="qa-block"><strong>W-Frage:</strong> Mit wem machen Sie Urlaub? <br><strong>Antwort:</strong> Ich mache Urlaub mit meiner Familie.</div>
+                            <div class="qa-block"><strong>Ja/Nein-Frage:</strong> Machen Sie gern Urlaub am Meer? <br><strong>Antwort:</strong> Ja, ich liebe den Strand.</div>
+                        </div></div>
+                    </div></div>
+                     <div class="card-container"><div class="card" data-thema="Reisen">
+                        <div class="card-face card-front"><span class="thema">Reisen</span><h3>Länder</h3></div>
+                        <div class="card-face card-back"><div class="card-back-content">
+                            <div class="qa-block"><strong>W-Frage:</strong> Welche Länder haben Sie schon besucht? <br><strong>Antwort:</strong> Ich habe schon Indien und China besucht.</div>
+                            <div class="qa-block"><strong>Ja/Nein-Frage:</strong> Möchten Sie nach Deutschland reisen? <br><strong>Antwort:</strong> Ja, das ist mein Traum.</div>
+                        </div></div>
+                    </div></div>
+                     <div class="card-container"><div class="card" data-thema="Reisen">
+                        <div class="card-face card-front"><span class="thema">Reisen</span><h3>Auto</h3></div>
+                        <div class="card-face card-back"><div class="card-back-content">
+                            <div class="qa-block"><strong>W-Frage:</strong> Reisen Sie lieber mit dem Auto? <br><strong>Antwort:</strong> Ja, ich reise lieber mit dem Auto.</div>
+                            <div class="qa-block"><strong>Ja/Nein-Frage:</strong> Haben Sie ein eigenes Auto? <br><strong>Antwort:</strong> Nein, ich habe kein Auto.</div>
+                        </div></div>
+                    </div></div>
+                     <div class="card-container"><div class="card" data-thema="Reisen">
+                        <div class="card-face card-front"><span class="thema">Reisen</span><h3>Wann?</h3></div>
+                        <div class="card-face card-back"><div class="card-back-content">
+                            <div class="qa-block"><strong>W-Frage:</strong> Wann machen Sie Ihren nächsten Urlaub? <br><strong>Antwort:</strong> Ich mache im Sommer Urlaub.</div>
+                            <div class="qa-block"><strong>Ja/Nein-Frage:</strong> Haben Sie dieses Jahr schon Urlaub gemacht? <br><strong>Antwort:</strong> Ja, ich war im Januar in den Bergen.</div>
+                        </div></div>
+                    </div></div>
+                </div>
+
+                <!-- Thema: Essen & Trinken -->
+                <h2 class="section-header">Thema: Essen & Trinken</h2>
+                <div class="card-grid">
+                     <div class="card-container"><div class="card" data-thema="Essen & Trinken">
+                        <div class="card-face card-front"><span class="thema">Essen & Trinken</span><h3>Lieblingsessen</h3></div>
+                        <div class="card-face card-back"><div class="card-back-content">
+                            <div class="qa-block"><strong>W-Frage:</strong> Was ist Ihr Lieblingsessen? <br><strong>Antwort:</strong> Mein Lieblingsessen ist Dal Bhat.</div>
+                            <div class="qa-block"><strong>Ja/Nein-Frage:</strong> Essen Sie gern Pizza? <br><strong>Antwort:</strong> Ja, Pizza esse ich auch sehr gern.</div>
+                        </div></div>
+                    </div></div>
+                     <div class="card-container"><div class="card" data-thema="Essen & Trinken">
+                        <div class="card-face card-front"><span class="thema">Essen & Trinken</span><h3>kochen</h3></div>
+                        <div class="card-face card-back"><div class="card-back-content">
+                            <div class="qa-block"><strong>W-Frage:</strong> Was kochen Sie gern? <br><strong>Antwort:</strong> Ich koche gern Nudeln.</div>
+                            <div class="qa-block"><strong>Ja/Nein-Frage:</strong> Können Sie gut kochen? <br><strong>Antwort:</strong> Ja, ich denke schon.</div>
+                        </div></div>
+                    </div></div>
+                     <div class="card-container"><div class="card" data-thema="Essen & Trinken">
+                        <div class="card-face card-front"><span class="thema">Essen & Trinken</span><h3>Frühstück</h3></div>
+                        <div class="card-face card-back"><div class="card-back-content">
+                            <div class="qa-block"><strong>W-Frage:</strong> Was essen Sie zum Frühstück? <br><strong>Antwort:</strong> Zum Frühstück esse ich Brot und trinke Tee.</div>
+                            <div class="qa-block"><strong>Ja/Nein-Frage:</strong> Ist Frühstück für Sie wichtig? <br><strong>Antwort:</strong> Ja, Frühstück ist sehr wichtig für mich.</div>
+                        </div></div>
+                    </div></div>
+                     <div class="card-container"><div class="card" data-thema="Essen & Trinken">
+                        <div class="card-face card-front"><span class="thema">Essen & Trinken</span><h3>Lieblingsgetränk</h3></div>
+                        <div class="card-face card-back"><div class="card-back-content">
+                            <div class="qa-block"><strong>W-Frage:</strong> Was ist Ihr Lieblingsgetränk? <br><strong>Antwort:</strong> Mein Lieblingsgetränk ist Kaffee.</div>
+                            <div class="qa-block"><strong>Ja/Nein-Frage:</strong> Trinken Sie gern Alkohol? <br><strong>Antwort:</strong> Nein, ich trinke keinen Alkohol.</div>
+                        </div></div>
+                    </div></div>
+                     <div class="card-container"><div class="card" data-thema="Essen & Trinken">
+                        <div class="card-face card-front"><span class="thema">Essen & Trinken</span><h3>Bier</h3></div>
+                        <div class="card-face card-back"><div class="card-back-content">
+                            <div class="qa-block"><strong>W-Frage:</strong> Welche Biermarke mögen Sie? <br><strong>Antwort:</strong> Ich trinke nicht oft Bier, aber wenn, dann ein lokales Bier.</div>
+                            <div class="qa-block"><strong>Ja/Nein-Frage:</strong> Trinken Sie gern Bier? <br><strong>Antwort:</strong> Nein, ich trinke lieber Wein.</div>
+                        </div></div>
+                    </div></div>
+                     <div class="card-container"><div class="card" data-thema="Essen & Trinken">
+                        <div class="card-face card-front"><span class="thema">Essen & Trinken</span><h3>Fleisch</h3></div>
+                        <div class="card-face card-back"><div class="card-back-content">
+                            <div class="qa-block"><strong>W-Frage:</strong> Welches Fleisch essen Sie am liebsten? <br><strong>Antwort:</strong> Ich esse am liebsten Hähnchen.</div>
+                            <div class="qa-block"><strong>Ja/Nein-Frage:</strong> Sind Sie Vegetarier? <br><strong>Antwort:</strong> Nein, ich bin kein Vegetarier.</div>
+                        </div></div>
+                    </div></div>
+                </div>
+
+                <!-- Thema: Sport -->
+                <h2 class="section-header">Thema: Sport</h2>
+                <div class="card-grid">
+                    <div class="card-container"><div class="card" data-thema="Sport">
+                        <div class="card-face card-front"><span class="thema">Sport</span><h3>Fußball</h3></div>
+                        <div class="card-face card-back"><div class="card-back-content">
+                            <div class="qa-block"><strong>W-Frage:</strong> Wie oft spielen Sie Fußball? <br><strong>Antwort:</strong> Ich spiele jedes Wochenende Fußball.</div>
+                            <div class="qa-block"><strong>Ja/Nein-Frage:</strong> Schauen Sie auch Fußball im Fernsehen? <br><strong>Antwort:</strong> Ja, ich bin ein großer Fan.</div>
+                        </div></div>
+                    </div></div>
+                    <div class="card-container"><div class="card" data-thema="Sport">
+                        <div class="card-face card-front"><span class="thema">Sport</span><h3>Fahrrad fahren</h3></div>
+                        <div class="card-face card-back"><div class="card-back-content">
+                            <div class="qa-block"><strong>W-Frage:</strong> Wohin fahren Sie gern mit dem Fahrrad? <br><strong>Antwort:</strong> Ich fahre gern durch den Park.</div>
+                            <div class="qa-block"><strong>Ja/Nein-Frage:</strong> Fahren Sie jeden Tag mit dem Fahrrad zur Arbeit? <br><strong>Antwort:</strong> Nein, das ist zu weit.</div>
+                        </div></div>
+                    </div></div>
+                    <div class="card-container"><div class="card" data-thema="Sport">
+                        <div class="card-face card-front"><span class="thema">Sport</span><h3>schwimmen</h3></div>
+                        <div class="card-face card-back"><div class="card-back-content">
+                            <div class="qa-block"><strong>W-Frage:</strong> Wo gehen Sie schwimmen? <br><strong>Antwort:</strong> Ich gehe im Sommer im See schwimmen.</div>
+                            <div class="qa-block"><strong>Ja/Nein-Frage:</strong> Können Sie gut schwimmen? <br><strong>Antwort:</strong> Ja, ich kann sehr gut schwimmen.</div>
+                        </div></div>
+                    </div></div>
+                    <div class="card-container"><div class="card" data-thema="Sport">
+                        <div class="card-face card-front"><span class="thema">Sport</span><h3>wandern</h3></div>
+                        <div class="card-face card-back"><div class="card-back-content">
+                            <div class="qa-block"><strong>W-Frage:</strong> Mit wem gehen Sie wandern? <br><strong>Antwort:</strong> Ich gehe oft mit meiner Familie wandern.</div>
+                             <div class="qa-block"><strong>Ja/Nein-Frage:</strong> Gehen Sie gern in den Bergen wandern? <br><strong>Antwort:</strong> Ja, ich liebe die Berge.</div>
+                        </div></div>
+                    </div></div>
+                    <div class="card-container"><div class="card" data-thema="Sport">
+                        <div class="card-face card-front"><span class="thema">Sport</span><h3>Verein</h3></div>
+                        <div class="card-face card-back"><div class="card-back-content">
+                            <div class="qa-block"><strong>W-Frage:</strong> In welchem Verein sind Sie? <br><strong>Antwort:</strong> Ich bin in einem lokalen Fußballverein.</div>
+                            <div class="qa-block"><strong>Ja/Nein-Frage:</strong> Sind Sie in einem Sportverein? <br><strong>Antwort:</strong> Ja, ich bin in einem Fußballverein.</div>
+                        </div></div>
+                    </div></div>
+                    <div class="card-container"><div class="card" data-thema="Sport">
+                        <div class="card-face card-front"><span class="thema">Sport</span><h3>Wochenende</h3></div>
+                        <div class="card-face card-back"><div class="card-back-content">
+                            <div class="qa-block"><strong>W-Frage:</strong> Welchen Sport machen Sie am Wochenende? <br><strong>Antwort:</strong> Am Wochenende spiele ich Tennis.</div>
+                            <div class="qa-block"><strong>Ja/Nein-Frage:</strong> Machen Sie am Wochenende Sport? <br><strong>Antwort:</strong> Ja, am Wochenende habe ich Zeit für Sport.</div>
+                        </div></div>
+                    </div></div>
+                </div>
+
+                <!-- Thema: Lernen -->
+                <h2 class="section-header">Thema: Lernen</h2>
+                <div class="card-grid">
+                    <div class="card-container"><div class="card" data-thema="Lernen">
+                        <div class="card-face card-front"><span class="thema">Lernen</span><h3>Sprachen</h3></div>
+                        <div class="card-face card-back"><div class="card-back-content">
+                            <div class="qa-block"><strong>W-Frage:</strong> Welche Sprachen sprechen Sie? <br><strong>Antwort:</strong> Ich spreche Nepali, Englisch und ein bisschen Deutsch.</div>
+                            <div class="qa-block"><strong>Ja/Nein-Frage:</strong> Ist Deutsch eine schwere Sprache? <br><strong>Antwort:</strong> Ja, aber es macht Spaß, sie zu lernen.</div>
+                        </div></div>
+                    </div></div>
+                    <div class="card-container"><div class="card" data-thema="Lernen">
+                        <div class="card-face card-front"><span class="thema">Lernen</span><h3>Bücher</h3></div>
+                        <div class="card-face card-back"><div class="card-back-content">
+                            <div class="qa-block"><strong>W-Frage:</strong> Was für Bücher lesen Sie gern? <br><strong>Antwort:</strong> Ich lese gern Romane.</div>
+                            <div class="qa-block"><strong>Ja/Nein-Frage:</strong> Lesen Sie auch deutsche Bücher? <br><strong>Antwort:</strong> Ja, ich versuche es. Es ist eine gute Übung.</div>
+                        </div></div>
+                    </div></div>
+                    <div class="card-container"><div class="card" data-thema="Lernen">
+                        <div class="card-face card-front"><span class="thema">Lernen</span><h3>Schule</h3></div>
+                        <div class="card-face card-back"><div class="card-back-content">
+                            <div class="qa-block"><strong>W-Frage:</strong> Was war Ihr Lieblingsfach in der Schule? <br><strong>Antwort:</strong> Mein Lieblingsfach war Mathematik.</div>
+                            <div class="qa-block"><strong>Ja/Nein-Frage:</strong> Sind Sie gern in die Schule gegangen? <br><strong>Antwort:</strong> Ja, die Schulzeit war sehr schön.</div>
+                        </div></div>
+                    </div></div>
+                    <div class="card-container"><div class="card" data-thema="Lernen">
+                        <div class="card-face card-front"><span class="thema">Lernen</span><h3>Internet</h3></div>
+                        <div class="card-face card-back"><div class="card-back-content">
+                            <div class="qa-block"><strong>W-Frage:</strong> Wie oft benutzen Sie das Internet zum Lernen? <br><strong>Antwort:</strong> Ich benutze jeden Tag das Internet.</div>
+                            <div class="qa-block"><strong>Ja/Nein-Frage:</strong> Hilft Ihnen das Internet beim Deutschlernen? <br><strong>Antwort:</strong> Ja, sehr. Es gibt viele gute Webseiten.</div>
+                        </div></div>
+                    </div></div>
+                    <div class="card-container"><div class="card" data-thema="Lernen">
+                        <div class="card-face card-front"><span class="thema">Lernen</span><h3>Lehrer</h3></div>
+                        <div class="card-face card-back"><div class="card-back-content">
+                            <div class="qa-block"><strong>W-Frage:</strong> Wie war Ihr Deutschlehrer? <br><strong>Antwort:</strong> Mein Lehrer war sehr geduldig und nett.</div>
+                            <div class="qa-block"><strong>Ja/Nein-Frage:</strong> Haben Sie einen guten Lehrer? <br><strong>Antwort:</strong> Ja, er kann sehr gut erklären.</div>
+                        </div></div>
+                    </div></div>
+                    <div class="card-container"><div class="card" data-thema="Lernen">
+                        <div class="card-face card-front"><span class="thema">Lernen</span><h3>zu Hause</h3></div>
+                        <div class="card-face card-back"><div class="card-back-content">
+                            <div class="qa-block"><strong>W-Frage:</strong> Wie viele Stunden lernen Sie zu Hause? <br><strong>Antwort:</strong> Ich lerne ungefähr zwei Stunden pro Tag.</div>
+                            <div class="qa-block"><strong>Ja/Nein-Frage:</strong> Lernen Sie lieber zu Hause oder in der Bibliothek? <br><strong>Antwort:</strong> Ich lerne lieber zu Hause, da ist es ruhiger.</div>
+                        </div></div>
+                    </div></div>
+                </div>
+
+                <!-- Thema: Wochenende -->
+                <h2 class="section-header">Thema: Wochenende</h2>
+                <div class="card-grid">
+                    <div class="card-container"><div class="card" data-thema="Wochenende">
+                        <div class="card-face card-front"><span class="thema">Wochenende</span><h3>Ausflug</h3></div>
+                        <div class="card-face card-back"><div class="card-back-content">
+                            <div class="qa-block"><strong>W-Frage:</strong> Wohin machen Sie am Wochenende einen Ausflug? <br><strong>Antwort:</strong> Wir fahren oft in die Berge.</div>
+                            <div class="qa-block"><strong>Ja/Nein-Frage:</strong> Machen Sie oft Ausflüge? <br><strong>Antwort:</strong> Ja, fast jedes Wochenende.</div>
+                        </div></div>
+                    </div></div>
+                    <div class="card-container"><div class="card" data-thema="Wochenende">
+                        <div class="card-face card-front"><span class="thema">Wochenende</span><h3>Sport</h3></div>
+                        <div class="card-face card-back"><div class="card-back-content">
+                            <div class="qa-block"><strong>W-Frage:</strong> Machen Sie am Wochenende Sport? <br><strong>Antwort:</strong> Ja, ich spiele am Samstag Fußball.</div>
+                            <div class="qa-block"><strong>Ja/Nein-Frage:</strong> Entspannen Sie sich auch am Wochenende? <br><strong>Antwort:</strong> Ja, der Sonntag ist zum Entspannen da.</div>
+                        </div></div>
+                    </div></div>
+                    <div class="card-container"><div class="card" data-thema="Wochenende">
+                        <div class="card-face card-front"><span class="thema">Wochenende</span><h3>fernsehen</h3></div>
+                        <div class="card-face card-back"><div class="card-back-content">
+                            <div class="qa-block"><strong>W-Frage:</strong> Was sehen Sie gern im Fernsehen? <br><strong>Antwort:</strong> Ich sehe gern Filme und Serien.</div>
+                            <div class="qa-block"><strong>Ja/Nein-Frage:</strong> Sehen Sie viel fern? <br><strong>Antwort:</strong> Nein, nur am Abend.</div>
+                        </div></div>
+                    </div></div>
+                    <div class="card-container"><div class="card" data-thema="Wochenende">
+                        <div class="card-face card-front"><span class="thema">Wochenende</span><h3>Kino</h3></div>
+                        <div class="card-face card-back"><div class="card-back-content">
+                            <div class="qa-block"><strong>W-Frage:</strong> Gehen Sie oft ins Kino? <br><strong>Antwort:</strong> Nein, ich gehe selten ins Kino.</div>
+                            <div class="qa-block"><strong>Ja/Nein-Frage:</strong> Gehen Sie lieber ins Kino oder sehen Sie Filme zu Hause? <br><strong>Antwort:</strong> Ich sehe lieber Filme zu Hause.</div>
+                        </div></div>
+                    </div></div>
+                    <div class="card-container"><div class="card" data-thema="Wochenende">
+                        <div class="card-face card-front"><span class="thema">Wochenende</span><h3>kochen</h3></div>
+                        <div class="card-face card-back"><div class="card-back-content">
+                            <div class="qa-block"><strong>W-Frage:</strong> Kochen Sie am Wochenende für Freunde? <br><strong>Antwort:</strong> Ja, manchmal koche ich für meine Freunde.</div>
+                            <div class="qa-block"><strong>Ja/Nein-Frage:</strong> Bestellen Sie am Wochenende oft Essen? <br><strong>Antwort:</strong> Nein, ich koche lieber selbst.</div>
+                        </div></div>
+                    </div></div>
+                    <div class="card-container"><div class="card" data-thema="Wochenende">
+                        <div class="card-face card-front"><span class="thema">Wochenende</span><h3>schlafen</h3></div>
+                        <div class="card-face card-back"><div class="card-back-content">
+                            <div class="qa-block"><strong>W-Frage:</strong> Wie lange schlafen Sie am Wochenende? <br><strong>Antwort:</strong> Ich schlafe meistens bis 10 Uhr.</div>
+                            <div class="qa-block"><strong>Ja/Nein-Frage:</strong> Machen Sie am Wochenende einen Mittagsschlaf? <br><strong>Antwort:</strong> Ja, manchmal schlafe ich nach dem Mittagessen.</div>
+                        </div></div>
+                    </div></div>
+                </div>
+
+            </div>
+
+            <!-- ======================= TEIL 3 CONTENT ======================= -->
+            <div id="teil3-content" class="content-panel teil3">
+
+                <h2 class="section-header">Thema: Bitten & Reaktionen</h2>
+                <div class="card-grid">
+                    <!-- All 48 cards for Teil 3 -->
+                    <div class="card-container"><div class="card">
+                        <div class="card-face card-front"><span class="thema">Bitte</span><span class="emoji">⌚</span><h3>Armbanduhr</h3></div>
+                        <div class="card-face card-back"><div class="card-back-content">
+                            <div class="bitte-block"><strong>Bitte:</strong> Entschuldigung, wie viel Uhr ist es? <br><i>(Excuse me, what time is it?)</i></div>
+                            <div class="bitte-block reaktion"><strong>Reaktion:</strong> Es ist halb drei. <br><i>(It's half past two.)</i></div>
+                        </div></div>
+                    </div></div>
+                    <div class="card-container"><div class="card">
+                        <div class="card-face card-front"><span class="thema">Bitte</span><span class="emoji">📖</span><h3>Buch</h3></div>
+                        <div class="card-face card-back"><div class="card-back-content">
+                            <div class="bitte-block"><strong>Bitte:</strong> Kann ich mir bitte Ihr Buch ausleihen? <br><i>(Can I please borrow your book?)</i></div>
+                            <div class="bitte-block reaktion"><strong>Reaktion:</strong> Ja, gern. Ich brauche es gerade nicht. <br><i>(Yes, gladly. I don't need it right now.)</i></div>
+                        </div></div>
+                    </div></div>
+                    <div class="card-container"><div class="card">
+                        <div class="card-face card-front"><span class="thema">Bitte</span><span class="emoji">📱</span><h3>Handy/Telefon</h3></div>
+                        <div class="card-face card-back"><div class="card-back-content">
+                            <div class="bitte-block"><strong>Bitte:</strong> Kann ich kurz mit Ihrem Handy telefonieren? <br><i>(Can I quickly make a call with your phone?)</i></div>
+                            <div class="bitte-block reaktion"><strong>Reaktion:</strong> Tut mir leid, mein Akku ist leer. <br><i>(I'm sorry, my battery is empty.)</i></div>
+                        </div></div>
+                    </div></div>
+                    <div class="card-container"><div class="card">
+                        <div class="card-face card-front"><span class="thema">Bitte</span><span class="emoji">🚲</span><h3>Fahrrad</h3></div>
+                        <div class="card-face card-back"><div class="card-back-content">
+                            <div class="bitte-block"><strong>Bitte:</strong> Können Sie mir bitte helfen? Mein Fahrrad ist kaputt. <br><i>(Can you please help me? My bicycle is broken.)</i></div>
+                            <div class="bitte-block reaktion"><strong>Reaktion:</strong> Ja, natürlich. Was ist denn los? <br><i>(Yes, of course. What's wrong?)</i></div>
+                        </div></div>
+                    </div></div>
+                    <div class="card-container"><div class="card">
+                        <div class="card-face card-front"><span class="thema">Bitte</span><span class="emoji">🥛</span><h3>Milch</h3></div>
+                        <div class="card-face card-back"><div class="card-back-content">
+                            <div class="bitte-block"><strong>Bitte:</strong> Können Sie mir bitte die Milch geben? <br><i>(Can you please give me the milk?)</i></div>
+                            <div class="bitte-block reaktion"><strong>Reaktion:</strong> Ja, gern. Hier, bitte schön. <br><i>(Yes, gladly. Here you go.)</i></div>
+                        </div></div>
+                    </div></div>
+                    <div class="card-container"><div class="card">
+                        <div class="card-face card-front"><span class="thema">Bitte</span><span class="emoji">📰</span><h3>Zeitung</h3></div>
+                        <div class="card-face card-back"><div class="card-back-content">
+                            <div class="bitte-block"><strong>Bitte:</strong> Geben Sie mir bitte die Zeitung? <br><i>(Could you please give me the newspaper?)</i></div>
+                            <div class="bitte-block reaktion"><strong>Reaktion:</strong> Ja, gern. Ich bin gleich fertig. <br><i>(Yes, gladly. I'll be finished in a moment.)</i></div>
+                        </div></div>
+                    </div></div>
+                    <div class="card-container"><div class="card">
+                        <div class="card-face card-front"><span class="thema">Bitte</span><span class="emoji">☕</span><h3>Kaffee</h3></div>
+                        <div class="card-face card-back"><div class="card-back-content">
+                            <div class="bitte-block"><strong>Bitte:</strong> Bringen Sie mir bitte einen Kaffee ohne Zucker? <br><i>(Could you please bring me a coffee without sugar?)</i></div>
+                            <div class="bitte-block reaktion"><strong>Reaktion:</strong> Ja, natürlich. Kommt sofort. <br><i>(Yes, of course. Coming right away.)</i></div>
+                        </div></div>
+                    </div></div>
+                    <div class="card-container"><div class="card">
+                        <div class="card-face card-front"><span class="thema">Bitte</span><span class="emoji">🍞</span><h3>Brot</h3></div>
+                        <div class="card-face card-back"><div class="card-back-content">
+                            <div class="bitte-block"><strong>Bitte:</strong> Können Sie bitte das Brot schneiden? <br><i>(Can you please cut the bread?)</i></div>
+                            <div class="bitte-block reaktion"><strong>Reaktion:</strong> Ja, gern. Wie viele Scheiben? <br><i>(Yes, gladly. How many slices?)</i></div>
+                        </div></div>
+                    </div></div>
+                    <div class="card-container"><div class="card">
+                        <div class="card-face card-front"><span class="thema">Bitte</span><span class="emoji">🚪</span><h3>Tür</h3></div>
+                        <div class="card-face card-back"><div class="card-back-content">
+                            <div class="bitte-block"><strong>Bitte:</strong> Machen Sie bitte die Tür zu? Es ist kalt. <br><i>(Could you please close the door? It's cold.)</i></div>
+                            <div class="bitte-block reaktion"><strong>Reaktion:</strong> Oh, ja, natürlich. Entschuldigung. <br><i>(Oh, yes, of course. Sorry.)</i></div>
+                        </div></div>
+                    </div></div>
+                    <div class="card-container"><div class="card">
+                        <div class="card-face card-front"><span class="thema">Bitte</span><span class="emoji">🍎</span><h3>Apfel</h3></div>
+                        <div class="card-face card-back"><div class="card-back-content">
+                            <div class="bitte-block"><strong>Bitte:</strong> Kann ich bitte einen Apfel haben? <br><i>(Can I please have an apple?)</i></div>
+                            <div class="bitte-block reaktion"><strong>Reaktion:</strong> Ja, natürlich. Nimm dir einen. <br><i>(Yes, of course. Take one.)</i></div>
+                        </div></div>
+                    </div></div>
+                    <div class="card-container"><div class="card">
+                        <div class="card-face card-front"><span class="thema">Bitte</span><span class="emoji">🖼️</span><h3>Fenster</h3></div>
+                        <div class="card-face card-back"><div class="card-back-content">
+                            <div class="bitte-block"><strong>Bitte:</strong> Können Sie bitte das Fenster öffnen? <br><i>(Can you please open the window?)</i></div>
+                            <div class="bitte-block reaktion"><strong>Reaktion:</strong> Ja, klar. Ich mache es sofort auf. <br><i>(Yes, sure. I'll open it right away.)</i></div>
+                        </div></div>
+                    </div></div>
+                    <div class="card-container"><div class="card">
+                        <div class="card-face card-front"><span class="thema">Bitte</span><span class="emoji">🖊️</span><h3>Stift</h3></div>
+                        <div class="card-face card-back"><div class="card-back-content">
+                            <div class="bitte-block"><strong>Bitte:</strong> Haben Sie einen Stift für mich? <br><i>(Do you have a pen for me?)</i></div>
+                            <div class="bitte-block reaktion"><strong>Reaktion:</strong> Ja, hier, bitte schön. <br><i>(Yes, here you go.)</i></div>
+                        </div></div>
+                    </div></div>
+                    <div class="card-container"><div class="card">
+                        <div class="card-face card-front"><span class="thema">Bitte</span><span class="emoji">🚗</span><h3>Auto</h3></div>
+                        <div class="card-face card-back"><div class="card-back-content">
+                            <div class="bitte-block"><strong>Bitte:</strong> Können Sie mich zum Bahnhof fahren? <br><i>(Can you drive me to the train station?)</i></div>
+                            <div class="bitte-block reaktion"><strong>Reaktion:</strong> Tut mir leid, ich fahre in die andere Richtung. <br><i>(I'm sorry, I'm going in the other direction.)</i></div>
+                        </div></div>
+                    </div></div>
+                    <div class="card-container"><div class="card">
+                        <div class="card-face card-front"><span class="thema">Bitte</span><span class="emoji">🍰</span><h3>Kuchen</h3></div>
+                        <div class="card-face card-back"><div class="card-back-content">
+                            <div class="bitte-block"><strong>Bitte:</strong> Kann ich bitte noch ein Stück Kuchen haben? <br><i>(Can I please have another piece of cake?)</i></div>
+                            <div class="bitte-block reaktion"><strong>Reaktion:</strong> Ja, natürlich. Greif zu! <br><i>(Yes, of course. Help yourself!)</i></div>
+                        </div></div>
+                    </div></div>
+                    <div class="card-container"><div class="card">
+                        <div class="card-face card-front"><span class="thema">Bitte</span><span class="emoji">🧳</span><h3>Koffer</h3></div>
+                        <div class="card-face card-back"><div class="card-back-content">
+                            <div class="bitte-block"><strong>Bitte:</strong> Helfen Sie mir bitte mit dem Koffer? <br><i>(Could you please help me with the suitcase?)</i></div>
+                            <div class="bitte-block reaktion"><strong>Reaktion:</strong> Ja, gern. Er ist wirklich schwer. <br><i>(Yes, gladly. It is really heavy.)</i></div>
+                        </div></div>
+                    </div></div>
+                    <div class="card-container"><div class="card">
+                        <div class="card-face card-front"><span class="thema">Bitte</span><span class="emoji">📷</span><h3>Kamera</h3></div>
+                        <div class="card-face card-back"><div class="card-back-content">
+                            <div class="bitte-block"><strong>Bitte:</strong> Können Sie bitte ein Foto von uns machen? <br><i>(Can you please take a photo of us?)</i></div>
+                            <div class="bitte-block reaktion"><strong>Reaktion:</strong> Ja, klar. Lächeln, bitte! <br><i>(Yes, sure. Smile, please!)</i></div>
+                        </div></div>
+                    </div></div>
+                    <div class="card-container"><div class="card">
+                        <div class="card-face card-front"><span class="thema">Bitte</span><span class="emoji">⚽</span><h3>Fußball</h3></div>
+                        <div class="card-face card-back"><div class="card-back-content">
+                            <div class="bitte-block"><strong>Bitte:</strong> Kannst du mir bitte den Ball zuwerfen? <br><i>(Can you please throw me the ball?)</i></div>
+                            <div class="bitte-block reaktion"><strong>Reaktion:</strong> Ja, klar. Fang! <br><i>(Yes, sure. Catch!)</i></div>
+                        </div></div>
+                    </div></div>
+                    <div class="card-container"><div class="card">
+                        <div class="card-face card-front"><span class="thema">Bitte</span><span class="emoji">💧</span><h3>Glas Wasser</h3></div>
+                        <div class="card-face card-back"><div class="card-back-content">
+                            <div class="bitte-block"><strong>Bitte:</strong> Könnte ich bitte ein Glas Wasser haben? <br><i>(Could I please have a glass of water?)</i></div>
+                            <div class="bitte-block reaktion"><strong>Reaktion:</strong> Ja, einen Moment. Mit oder ohne Kohlensäure? <br><i>(Yes, one moment. With or without sparkling water?)</i></div>
+                        </div></div>
+                    </div></div>
+                    <div class="card-container"><div class="card">
+                        <div class="card-face card-front"><span class="thema">Bitte</span><span class="emoji">🧥</span><h3>Jacke</h3></div>
+                        <div class="card-face card-back"><div class="card-back-content">
+                            <div class="bitte-block"><strong>Bitte:</strong> Können Sie bitte meine Jacke aufhängen? <br><i>(Can you please hang up my jacket?)</i></div>
+                            <div class="bitte-block reaktion"><strong>Reaktion:</strong> Ja, natürlich. Geben Sie her. <br><i>(Yes, of course. Give it to me.)</i></div>
+                        </div></div>
+                    </div></div>
+                     <div class="card-container"><div class="card">
+                        <div class="card-face card-front"><span class="thema">Bitte</span><span class="emoji">💊</span><h3>Medikamente</h3></div>
+                        <div class="card-face card-back"><div class="card-back-content">
+                            <div class="bitte-block"><strong>Bitte:</strong> Können Sie mir bitte sagen, wo die Apotheke ist? <br><i>(Can you please tell me where the pharmacy is?)</i></div>
+                            <div class="bitte-block reaktion"><strong>Reaktion:</strong> Ja, die Apotheke ist gleich um die Ecke. <br><i>(Yes, the pharmacy is just around the corner.)</i></div>
+                        </div></div>
+                    </div></div>
+                    <div class="card-container"><div class="card">
+                        <div class="card-face card-front"><span class="thema">Bitte</span><span class="emoji">💡</span><h3>Lampe</h3></div>
+                        <div class="card-face card-back"><div class="card-back-content">
+                            <div class="bitte-block"><strong>Bitte:</strong> Können Sie bitte das Licht anmachen? <br><i>(Can you please turn on the light?)</i></div>
+                            <div class="bitte-block reaktion"><strong>Reaktion:</strong> Ja, sofort. Ist es so besser? <br><i>(Yes, right away. Is it better like this?)</i></div>
+                        </div></div>
+                    </div></div>
+                    <div class="card-container"><div class="card">
+                        <div class="card-face card-front"><span class="thema">Bitte</span><span class="emoji">💿</span><h3>CD</h3></div>
+                        <div class="card-face card-back"><div class="card-back-content">
+                            <div class="bitte-block"><strong>Bitte:</strong> Kann ich mir diese CD ausleihen? <br><i>(Can I borrow this CD?)</i></div>
+                            <div class="bitte-block reaktion"><strong>Reaktion:</strong> Ja, aber bitte gib sie mir morgen zurück. <br><i>(Yes, but please give it back to me tomorrow.)</i></div>
+                        </div></div>
+                    </div></div>
+                    <div class="card-container"><div class="card">
+                        <div class="card-face card-front"><span class="thema">Bitte</span><span class="emoji">🍓</span><h3>Erdbeeren</h3></div>
+                        <div class="card-face card-back"><div class="card-back-content">
+                            <div class="bitte-block"><strong>Bitte:</strong> Kann ich bitte ein paar Erdbeeren haben? <br><i>(Can I please have some strawberries?)</i></div>
+                            <div class="bitte-block reaktion"><strong>Reaktion:</strong> Ja, nimm dir. Sie sind sehr lecker. <br><i>(Yes, take some. They are very tasty.)</i></div>
+                        </div></div>
+                    </div></div>
+                    <div class="card-container"><div class="card">
+                        <div class="card-face card-front"><span class="thema">Bitte</span><span class="emoji">🍾</span><h3>Flasche</h3></div>
+                        <div class="card-face card-back"><div class="card-back-content">
+                            <div class="bitte-block"><strong>Bitte:</strong> Können Sie bitte die Flasche Wasser öffnen? <br><i>(Can you please open the bottle of water?)</i></div>
+                            <div class="bitte-block reaktion"><strong>Reaktion:</strong> Ja, klar. Hier, bitte. <br><i>(Yes, sure. Here, please.)</i></div>
+                        </div></div>
+                    </div></div>
+                    <div class="card-container"><div class="card">
+                        <div class="card-face card-front"><span class="thema">Bitte</span><span class="emoji">🍽️</span><h3>Essen</h3></div>
+                        <div class="card-face card-back"><div class="card-back-content">
+                            <div class="bitte-block"><strong>Bitte:</strong> Kann ich bitte das Salz haben? <br><i>(Can I please have the salt?)</i></div>
+                            <div class="bitte-block reaktion"><strong>Reaktion:</strong> Ja, hier ist das Salz. Guten Appetit! <br><i>(Yes, here is the salt. Enjoy your meal!)</i></div>
+                        </div></div>
+                    </div></div>
+                    <div class="card-container"><div class="card">
+                        <div class="card-face card-front"><span class="thema">Bitte</span><span class="emoji">✂️</span><h3>Schere</h3></div>
+                        <div class="card-face card-back"><div class="card-back-content">
+                            <div class="bitte-block"><strong>Bitte:</strong> Kann ich mir kurz deine Schere leihen? <br><i>(Can I borrow your scissors for a moment?)</i></div>
+                            <div class="bitte-block reaktion"><strong>Reaktion:</strong> Ja, natürlich. Aber sei vorsichtig. <br><i>(Yes, of course. But be careful.)</i></div>
+                        </div></div>
+                    </div></div>
+                    <div class="card-container"><div class="card">
+                        <div class="card-face card-front"><span class="thema">Bitte</span><span class="emoji">🎒</span><h3>Rucksack</h3></div>
+                        <div class="card-face card-back"><div class="card-back-content">
+                            <div class="bitte-block"><strong>Bitte:</strong> Können Sie mir helfen, meinen Rucksack zu schließen? <br><i>(Can you help me close my backpack?)</i></div>
+                            <div class="bitte-block reaktion"><strong>Reaktion:</strong> Ja, gern. Der Reißverschluss klemmt. <br><i>(Yes, gladly. The zipper is stuck.)</i></div>
+                        </div></div>
+                    </div></div>
+                    <div class="card-container"><div class="card">
+                        <div class="card-face card-front"><span class="thema">Bitte</span><span class="emoji">🐕</span><h3>Hund</h3></div>
+                        <div class="card-face card-back"><div class="card-back-content">
+                            <div class="bitte-block"><strong>Bitte:</strong> Können Sie bitte Ihren Hund an die Leine nehmen? <br><i>(Can you please put your dog on the leash?)</i></div>
+                            <div class="bitte-block reaktion"><strong>Reaktion:</strong> Oh, Entschuldigung. Ja, mache ich sofort. <br><i>(Oh, sorry. Yes, I'll do it right away.)</i></div>
+                        </div></div>
+                    </div></div>
+                    <div class="card-container"><div class="card">
+                        <div class="card-face card-front"><span class="thema">Bitte</span><span class="emoji">🎫</span><h3>Fahrkarte</h3></div>
+                        <div class="card-face card-back"><div class="card-back-content">
+                            <div class="bitte-block"><strong>Bitte:</strong> Zeigen Sie mir bitte Ihre Fahrkarte? <br><i>(Could you please show me your ticket?)</i></div>
+                            <div class="bitte-block reaktion"><strong>Reaktion:</strong> Ja, hier ist meine Fahrkarte. <br><i>(Yes, here is my ticket.)</i></div>
+                        </div></div>
+                    </div></div>
+                    <div class="card-container"><div class="card">
+                        <div class="card-face card-front"><span class="thema">Bitte</span><span class="emoji">👕</span><h3>Pullover</h3></div>
+                        <div class="card-face card-back"><div class="card-back-content">
+                            <div class="bitte-block"><strong>Bitte:</strong> Gefällt dir dieser Pullover? Kannst du ihn mir geben? <br><i>(Do you like this sweater? Can you give it to me?)</i></div>
+                            <div class="bitte-block reaktion"><strong>Reaktion:</strong> Ja, er steht dir gut. Hier, probier ihn an. <br><i>(Yes, it looks good on you. Here, try it on.)</i></div>
+                        </div></div>
+                    </div></div>
+                    <div class="card-container"><div class="card">
+                        <div class="card-face card-front"><span class="thema">Bitte</span><span class="emoji">🧊</span><h3>Kühlschrank</h3></div>
+                        <div class="card-face card-back"><div class="card-back-content">
+                            <div class="bitte-block"><strong>Bitte:</strong> Holst du mir bitte ein Wasser aus dem Kühlschrank? <br><i>(Could you please get me a water from the fridge?)</i></div>
+                            <div class="bitte-block reaktion"><strong>Reaktion:</strong> Ja, einen Moment. Hier, bitte. <br><i>(Yes, one moment. Here, please.)</i></div>
+                        </div></div>
+                    </div></div>
+                    <div class="card-container"><div class="card">
+                        <div class="card-face card-front"><span class="thema">Bitte</span><span class="emoji">✉️</span><h3>Briefmarken</h3></div>
+                        <div class="card-face card-back"><div class="card-back-content">
+                            <div class="bitte-block"><strong>Bitte:</strong> Haben Sie eine Briefmarke für mich? <br><i>(Do you have a stamp for me?)</i></div>
+                            <div class="bitte-block reaktion"><strong>Reaktion:</strong> Ja, hier. Das macht 85 Cent. <br><i>(Yes, here. That will be 85 cents.)</i></div>
+                        </div></div>
+                    </div></div>
+                    <div class="card-container"><div class="card">
+                        <div class="card-face card-front"><span class="thema">Bitte</span><span class="emoji">🫐</span><h3>Blaubeeren</h3></div>
+                        <div class="card-face card-back"><div class="card-back-content">
+                            <div class="bitte-block"><strong>Bitte:</strong> Möchtest du ein paar Blaubeeren probieren? <br><i>(Would you like to try some blueberries?)</i></div>
+                            <div class="bitte-block reaktion"><strong>Reaktion:</strong> Oh ja, danke! Die sehen lecker aus. <br><i>(Oh yes, thank you! They look delicious.)</i></div>
+                        </div></div>
+                    </div></div>
+                    <div class="card-container"><div class="card">
+                        <div class="card-face card-front"><span class="thema">Bitte</span><span class="emoji">🥗</span><h3>Salat</h3></div>
+                        <div class="card-face card-back"><div class="card-back-content">
+                            <div class="bitte-block"><strong>Bitte:</strong> Kannst du mir bitte den Salat reichen? <br><i>(Can you please pass me the salad?)</i></div>
+                            <div class="bitte-block reaktion"><strong>Reaktion:</strong> Ja, gern. Hier, bitte schön. <br><i>(Yes, gladly. Here you go.)</i></div>
+                        </div></div>
+                    </div></div>
+                    <div class="card-container"><div class="card">
+                        <div class="card-face card-front"><span class="thema">Bitte</span><span class="emoji">⌨️</span><h3>Tastatur</h3></div>
+                        <div class="card-face card-back"><div class="card-back-content">
+                            <div class="bitte-block"><strong>Bitte:</strong> Kann ich kurz deine Tastatur benutzen? <br><i>(Can I use your keyboard for a moment?)</i></div>
+                            <div class="bitte-block reaktion"><strong>Reaktion:</strong> Ja, klar. Aber bitte keine Getränke darauf abstellen. <br><i>(Yes, sure. But please don't put any drinks on it.)</i></div>
+                        </div></div>
+                    </div></div>
+                    <div class="card-container"><div class="card">
+                        <div class="card-face card-front"><span class="thema">Bitte</span><span class="emoji">🚕</span><h3>Taxi</h3></div>
+                        <div class="card-face card-back"><div class="card-back-content">
+                            <div class="bitte-block"><strong>Bitte:</strong> Können Sie bitte ein Taxi für mich rufen? <br><i>(Can you please call a taxi for me?)</i></div>
+                            <div class="bitte-block reaktion"><strong>Reaktion:</strong> Ja, wohin möchten Sie denn fahren? <br><i>(Yes, where would you like to go?)</i></div>
+                        </div></div>
+                    </div></div>
+                    <div class="card-container"><div class="card">
+                        <div class="card-face card-front"><span class="thema">Bitte</span><span class="emoji">💶</span><h3>Geld</h3></div>
+                        <div class="card-face card-back"><div class="card-back-content">
+                            <div class="bitte-block"><strong>Bitte:</strong> Können Sie mir bitte Geld wechseln? <br><i>(Can you please change money for me?)</i></div>
+                            <div class="bitte-block reaktion"><strong>Reaktion:</strong> Tut mir leid, ich habe leider kein Kleingeld. <br><i>(I'm sorry, unfortunately I don't have any small change.)</i></div>
+                        </div></div>
+                    </div></div>
+                    <div class="card-container"><div class="card">
+                        <div class="card-face card-front"><span class="thema">Bitte</span><span class="emoji">🔑</span><h3>Schlüssel</h3></div>
+                        <div class="card-face card-back"><div class="card-back-content">
+                            <div class="bitte-block"><strong>Bitte:</strong> Gibst du mir bitte den Schlüssel? <br><i>(Will you please give me the key?)</i></div>
+                            <div class="bitte-block reaktion"><strong>Reaktion:</strong> Ja, hier ist er. Verliere ihn nicht! <br><i>(Yes, here it is. Don't lose it!)</i></div>
+                        </div></div>
+                    </div></div>
+                    <div class="card-container"><div class="card">
+                        <div class="card-face card-front"><span class="thema">Bitte</span><span class="emoji">👓</span><h3>Brille</h3></div>
+                        <div class="card-face card-back"><div class="card-back-content">
+                            <div class="bitte-block"><strong>Bitte:</strong> Kannst du meine Brille finden? Ich sehe nichts. <br><i>(Can you find my glasses? I can't see anything.)</i></div>
+                            <div class="bitte-block reaktion"><strong>Reaktion:</strong> Ja, sie liegt hier auf dem Tisch. <br><i>(Yes, it's here on the table.)</i></div>
+                        </div></div>
+                    </div></div>
+                    <div class="card-container"><div class="card">
+                        <div class="card-face card-front"><span class="thema">Bitte</span><span class="emoji">👜</span><h3>Tasche</h3></div>
+                        <div class="card-face card-back"><div class="card-back-content">
+                            <div class="bitte-block"><strong>Bitte:</strong> Können Sie kurz auf meine Tasche aufpassen? <br><i>(Can you watch my bag for a moment?)</i></div>
+                            <div class="bitte-block reaktion"><strong>Reaktion:</strong> Ja, kein Problem. Ich bleibe hier. <br><i>(Yes, no problem. I'll stay here.)</i></div>
+                        </div></div>
+                    </div></div>
+                    <div class="card-container"><div class="card">
+                        <div class="card-face card-front"><span class="thema">Bitte</span><span class="emoji">📻</span><h3>Radio</h3></div>
+                        <div class="card-face card-back"><div class="card-back-content">
+                            <div class="bitte-block"><strong>Bitte:</strong> Können Sie das Radio bitte leiser machen? <br><i>(Can you please turn the radio down?)</i></div>
+                            <div class="bitte-block reaktion"><strong>Reaktion:</strong> Oh, Entschuldigung. Ist es so besser? <br><i>(Oh, sorry. Is it better like this?)</i></div>
+                        </div></div>
+                    </div></div>
+                    <div class="card-container"><div class="card">
+                        <div class="card-face card-front"><span class="thema">Bitte</span><span class="emoji">☔</span><h3>Regenschirm</h3></div>
+                        <div class="card-face card-back"><div class="card-back-content">
+                            <div class="bitte-block"><strong>Bitte:</strong> Kann ich mir deinen Regenschirm leihen? Es regnet. <br><i>(Can I borrow your umbrella? It's raining.)</i></div>
+                            <div class="bitte-block reaktion"><strong>Reaktion:</strong> Ja, natürlich. Nimm ihn mit. <br><i>(Yes, of course. Take it with you.)</i></div>
+                        </div></div>
+                    </div></div>
+                    <div class="card-container"><div class="card">
+                        <div class="card-face card-front"><span class="thema">Bitte</span><span class="emoji">🍅</span><h3>Tomaten</h3></div>
+                        <div class="card-face card-back"><div class="card-back-content">
+                            <div class="bitte-block"><strong>Bitte:</strong> Kaufen Sie bitte auch Tomaten? <br><i>(Could you please buy tomatoes as well?)</i></div>
+                            <div class="bitte-block reaktion"><strong>Reaktion:</strong> Gute Idee! Die hätte ich fast vergessen. <br><i>(Good idea! I almost forgot them.)</i></div>
+                        </div></div>
+                    </div></div>
+                    <div class="card-container"><div class="card">
+                        <div class="card-face card-front"><span class="thema">Bitte</span><span class="emoji">🪑</span><h3>Stuhl</h3></div>
+                        <div class="card-face card-back"><div class="card-back-content">
+                            <div class="bitte-block"><strong>Bitte:</strong> Ist dieser Stuhl noch frei? <br><i>(Is this chair free?)</i></div>
+                            <div class="bitte-block reaktion"><strong>Reaktion:</strong> Ja, bitte, nehmen Sie Platz. <br><i>(Yes, please, have a seat.)</i></div>
+                        </div></div>
+                    </div></div>
+                    <div class="card-container"><div class="card">
+                        <div class="card-face card-front"><span class="thema">Bitte</span><span class="emoji">🔥</span><h3>Feuer</h3></div>
+                        <div class="card-face card-back"><div class="card-back-content">
+                            <div class="bitte-block"><strong>Bitte:</strong> Haben Sie Feuer? <br><i>(Do you have a light?)</i></div>
+                            <div class="bitte-block reaktion"><strong>Reaktion:</strong> Ja, hier, bitte. <br><i>(Yes, here you go.)</i></div>
+                        </div></div>
+                    </div></div>
+                    <div class="card-container"><div class="card">
+                        <div class="card-face card-front"><span class="thema">Bitte</span><span class="emoji">🎶</span><h3>Musik</h3></div>
+                        <div class="card-face card-back"><div class="card-back-content">
+                            <div class="bitte-block"><strong>Bitte:</strong> Kannst du bitte die Musik wechseln? <br><i>(Can you please change the music?)</i></div>
+                            <div class="bitte-block reaktion"><strong>Reaktion:</strong> Ja, was möchtest du hören? <br><i>(Yes, what do you want to listen to?)</i></div>
+                        </div></div>
+                    </div></div>
+                    <div class="card-container"><div class="card">
+                        <div class="card-face card-front"><span class="thema">Bitte</span><span class="emoji">🎁</span><h3>Geschenk</h3></div>
+                        <div class="card-face card-back"><div class="card-back-content">
+                            <div class="bitte-block"><strong>Bitte:</strong> Kannst du mir helfen, das Geschenk einzupacken? <br><i>(Can you help me wrap the present?)</i></div>
+                            <div class="bitte-block reaktion"><strong>Reaktion:</strong> Ja, klar. Wo ist das Geschenkpapier? <br><i>(Yes, sure. Where is the wrapping paper?)</i></div>
+                        </div></div>
+                    </div></div>
+                </div>
+
+            </div>
+        </main>
+        
+        <footer>
+            Viel Erfolg bei deiner Prüfung! (Good luck with your exam!)
+        </footer>
+    </div>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- Card Flip Functionality ---
+            const cards = document.querySelectorAll('.card');
+            cards.forEach(card => {
+                card.addEventListener('click', () => {
+                    card.classList.toggle('flipped');
+                });
+            });
+
+            // --- Tab Switching Functionality ---
+            const tabButtons = document.querySelectorAll('.tab-btn');
+            const contentPanels = document.querySelectorAll('.content-panel');
+
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Remove active class from all buttons and panels
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    contentPanels.forEach(panel => panel.classList.remove('active'));
+
+                    // Add active class to the clicked button and its target panel
+                    button.classList.add('active');
+                    const targetPanel = document.querySelector(button.dataset.target);
+                    if (targetPanel) {
+                        targetPanel.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
+<!DOCTYPE html>
